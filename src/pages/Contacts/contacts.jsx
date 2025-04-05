@@ -1,3 +1,4 @@
+// src/pages/Contacts/contacts.jsx
 import React from "react";
 
 const Contacts = () => {
