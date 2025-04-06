@@ -4,6 +4,7 @@ import { NavLink, Outlet } from "react-router-dom";
 const Shop = () => {
   const navItems = [
     { name: "Flowers", path: "categories/flowers" },
+    { name: "Fertilizers", path: "categories/fertilizers" },
     { name: "Plants", path: "categories/plants" },
     { name: "Seeds", path: "categories/seeds" },
     { name: "Tools", path: "categories/tools" },

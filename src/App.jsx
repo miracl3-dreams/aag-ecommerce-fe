@@ -10,6 +10,7 @@ import Flowers from "./pages/Shop/Categories/Flowers";
 import Plants from "./pages/Shop/Categories/Plants";
 import Seeds from "./pages/Shop/Categories/Seeds";
 import Tools from "./pages/Shop/Categories/Tools";
+import Fertilizers from "./pages/Shop/Categories/Fertilizers";
 import DarkMode from "./components/DarkMode/DarkMode";
 
 import "aos/dist/aos.css";
@@ -43,6 +44,7 @@ const App = () => {
             {/* SHOP ROUTES */}
             <Route path="/shop" element={<Shop />}>
               <Route path="categories/flowers" element={<Flowers />} />
+              <Route path="categories/fertilizers" element={<Fertilizers />} />
               <Route path="categories/plants" element={<Plants />} />
               <Route path="categories/seeds" element={<Seeds />} />
               <Route path="categories/tools" element={<Tools />} />

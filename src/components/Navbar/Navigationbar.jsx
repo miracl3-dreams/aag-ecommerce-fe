@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Logo from "../../assets/logo/Logo.jpg";
 import { FaBars, FaTimes } from "react-icons/fa";
-import DarkMode from "../DarkMode/DarkMode"; 
+import DarkMode from "../DarkMode/DarkMode";
 import { useNavigate } from "react-router-dom";
 
 const Menu = [
@@ -42,7 +42,7 @@ const Navigationbar = () => {
                 <li key={data.id}>
                   <a
                     href={data.link}
-                    className="text-black dark:text-black hover:text-gray-700 duration-200 font-playfair"
+                    className="text-black dark:text-black hover:bg-gray-700rounded-full duration-200 font-playfair"
                   >
                     {data.name}
                   </a>
