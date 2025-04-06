@@ -79,19 +79,11 @@ const Flowers = () => {
             >
               &times;
             </button>
-            <h3 className="text-xl font-semibold mb-4">
-              {selectedImage.split(".")[0]}
-            </h3>
             <img
               src={`/src/assets/shop/categories/flowers/${selectedImage}`}
               alt={selectedImage}
               className="w-full h-72 object-contain rounded mb-4"
             />
-            <p>
-              {/* Placeholder definition */}
-              This is a beautiful flower known for its vibrant colors and
-              symbolic meaning. 🌸
-            </p>
           </div>
         </div>
       )}

@@ -6,11 +6,11 @@ import Home from "./pages/Home/home";
 import Shop from "./pages/Shop/shop";
 import AboutUs from "./pages/AboutUs/aboutUs";
 import Footer from "./components/Footer/Footer";
-import Flowers from "./pages/Shop/Categories/Flowers";
-import Plants from "./pages/Shop/Categories/Plants";
-import Seeds from "./pages/Shop/Categories/Seeds";
-import Tools from "./pages/Shop/Categories/Tools";
-import Fertilizers from "./pages/Shop/Categories/Fertilizers";
+import Flowers from "./pages/Shop/Categories/flowers";
+import Plants from "./pages/Shop/Categories/plants";
+import Seeds from "./pages/Shop/Categories/seeds";
+import Tools from "./pages/Shop/Categories/tools";
+import Fertilizers from "./pages/Shop/Categories/fertilizers";
 import DarkMode from "./components/DarkMode/DarkMode";
 
 import "aos/dist/aos.css";
