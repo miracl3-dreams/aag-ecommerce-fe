@@ -71,7 +71,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Section 3: Meet Our Experts */}
+      {/* Section 3: Meet These Experts */}
       <section className="py-16 bg-primary-gradient dark:bg-gray-800 text-center text-white">
         <div className="container mx-auto px-4 sm:px-10">
           <h2 className="text-3xl font-bold font-playfair mb-12 text-black">
