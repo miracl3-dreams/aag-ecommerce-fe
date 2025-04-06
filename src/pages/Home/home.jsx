@@ -1,48 +1,108 @@
 import React from "react";
 import Flower from "../../assets/home/Flower.jpg";
+import Background from "../../assets/home/Background.png";
 import "../../index.css";
+import Slider from "react-slick";
 
 const Home = () => {
   return (
     <>
-      <div className="relative min-h-[80vh] sm:min-h-[90vh] lg:min-h-[100vh] bg-primary flex justify-center items-center dark:bg-gray-800 dark:text-white duration-200 flex-grow">
-        {/* Abstract flower-like background on the right side */}
-        <div className="absolute top-0 right-0 w-full h-full overflow-hidden">
-          <div className="absolute top-[-120px] right-[-80px] w-[350px] h-[350px] bg-rose-400 rounded-full blur-xl opacity-90 rotate-45"></div>
-          <div className="absolute top-[100px] right-[60px] w-[300px] h-[300px] bg-pink-500 rounded-full blur-lg opacity-90 rotate-[20deg]"></div>
-          <div className="absolute top-[300px] right-[-60px] w-[350px] h-[350px] bg-fuchsia-500 rounded-full blur-md opacity-85 rotate-[70deg]"></div>
-          <div className="absolute top-[200px] right-[120px] w-[200px] h-[200px] bg-white rounded-full blur-lg opacity-50"></div>
-        </div>
-
-        {/* Home section */}
-        <div className="container mx-auto px-4 sm:px-10 pb-10 sm:pb-12">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center">
+      {/* Hero Section */}
+      <div
+        className="relative min-h-[90vh] bg-cover bg-center bg-no-repeat flex justify-center items-center dark:bg-gray-800 dark:text-white"
+        style={{
+          backgroundImage: `url(${Background})`,
+          backdropFilter: "blur(6px)",
+        }}
+      >
+        <div className="bg-white/50 dark:bg-black/50 backdrop-blur-md w-full h-full absolute top-0 left-0 z-0" />
+        <div className="container mx-auto px-4 sm:px-10 relative z-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center py-20">
             {/* Text content */}
-            <div className="overflow-visible">
-              <div className="flex flex-col justify-center gap-4 pt-14 sm:pt-0 text-center sm:text-left order-2 sm:order-1 relative z-10 sm:pl-10 lg:pl-20">
-                <h1 className="text-4xl sm:text-6xl lg:text-5xl font-bold font-playfair leading-tight">
-                  Rooted with Passion,
-                </h1>
-                <h1 className="text-4xl sm:text-6xl lg:text-5xl font-bold font-playfair leading-normal pb-4 sm:pb-6">
-                  Growing with Love.
-                </h1>
-                <p className="text-sm sm:text-base text-primary font-bold"></p>
-              </div>
+            <div className="text-center sm:text-left">
+              <h1 className="text-4xl sm:text-6xl font-bold font-playfair">
+                Rooted with Passion,
+              </h1>
+              <h1 className="text-4xl sm:text-6xl font-bold font-playfair pb-6">
+                Growing with Love.
+              </h1>
             </div>
 
             {/* Image */}
-            <div className="order-1 sm:order-2">
-              <div className="relative z-10">
-                <img
-                  src={Flower}
-                  alt="Flower"
-                  className="w-[300px] h-[350px] sm:h-[400px] sm:w-[450px] sm:scale-100 lg:scale-110 object-contain mx-auto rounded-3xl mt-5 image-animation"
-                />
-              </div>
+            <div className="flex justify-center">
+              <img
+                src={Flower}
+                alt="Flower"
+                className="w-[300px] h-[350px] sm:h-[400px] sm:w-[450px] object-contain rounded-3xl mt-5 image-animation"
+              />
             </div>
           </div>
         </div>
       </div>
+
+      {/* Section 2: Best Selling Products Slider */}
+      <section className="py-16 bg-primary-gradient-light dark:bg-gray-900">
+        <div className="container mx-auto px-4 sm:px-10">
+          <h2 className="text-3xl font-bold font-playfair text-center mb-10 dark:text-white">
+            Best Selling Products
+          </h2>
+
+          <Slider
+            dots={true}
+            infinite={true} 
+            speed={800}
+            slidesToShow={1}
+            slidesToScroll={1}
+            autoplay={true}
+            autoplaySpeed={2000}
+            arrows={false}
+            className="w-full max-w-4xl mx-auto"
+          >
+            {[...Array(3)].map((_, i) => (
+              <div key={i} className="px-4">
+                <img
+                  src={Background} 
+                  alt={`Product ${i + 1}`}
+                  className="w-full h-[400px] object-cover rounded-xl shadow-lg"
+                />
+              </div>
+            ))}
+          </Slider>
+        </div>
+      </section>
+
+      {/* Section 3: Meet Our Experts */}
+      <section className="py-16 bg-primary-gradient dark:bg-gray-800 text-center text-white">
+        <div className="container mx-auto px-4 sm:px-10">
+          <h2 className="text-3xl font-bold font-playfair mb-12 text-black">
+            Meet Our Experts
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+            {[
+              {
+                name: "Amara",
+                title: "Founder & Designer",
+                image: "expert1.jpg",
+              },
+              { name: "Leo", title: "Botanist", image: "expert2.jpg" },
+              { name: "Selena", title: "Marketing Lead", image: "expert3.jpg" },
+            ].map((expert, idx) => (
+              <div
+                key={idx}
+                className="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md"
+              >
+                <img
+                  src={`/src/assets/experts/${expert.image}`}
+                  alt={expert.name}
+                  className="w-32 h-32 mx-auto rounded-full mb-4 object-cover"
+                />
+                <h3 className="text-xl font-semibold">{expert.name}</h3>
+                <p className="text-sm">{expert.title}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </>
   );
 };

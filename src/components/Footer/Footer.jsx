@@ -2,8 +2,9 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="shadow-md bg-secondary/30 dark:bg-gray-700 dark:text-white duration-200 py-8 text-center w-full">
-      <p className="text-lg text-black dark:text-white font-playfair">
+    <div className="relative shadow-md bg-primary-gradient dark:bg-gray-700 dark:text-white duration-200 py-8 text-center w-full overflow-hidden">
+      <div className="absolute inset-0 bg-white opacity-40 dark:opacity-0"></div>
+      <p className="relative z-10 text-lg text-black dark:text-white font-playfair">
         © 2025 Amara Amour Garden. All rights reserved.
       </p>
     </div>

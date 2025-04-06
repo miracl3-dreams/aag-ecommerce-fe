@@ -1,17 +1,13 @@
-// src/pages/Contacts/contacts.jsx
 import React from "react";
 
 const Contacts = () => {
   return (
     <div className="flex flex-col sm:flex-row justify-center items-center mt-24 mb-16 gap-16 px-4 sm:px-8 lg:px-16">
       {/* Left Section - Contact Information */}
-      <div className="bg-primary p-6 rounded-2xl shadow-2xl text-center w-full sm:w-1/2 h-full">
-        <h2 className="text-xl sm:text-2xl font-semibold mb-4">
-          Contact Us
-        </h2>
+      <div className="bg-primary-gradient-light p-6 rounded-2xl shadow-2xl text-center w-full sm:w-1/2 h-full">
+        <h2 className="text-xl sm:text-2xl font-semibold mb-4">Contact Us</h2>
         <p className="text-sm sm:text-base text-gray-500 mb-6">
-          Feel free to inquire, and we'll assist you
-          with your order!
+          Feel free to inquire, and we'll assist you with your order!
         </p>
 
         {/* Contact details */}
@@ -27,17 +23,18 @@ const Contacts = () => {
           </p>
           <p className="text-sm sm:text-base text-gray-500">
             <strong>Phone:</strong>{" "}
-            <a href="" className="text-blue-500">
+            <a href="tel:+639810736741" className="text-blue-500">
               09810736741
             </a>
           </p>
           <p className="text-sm sm:text-base text-gray-500">
-            <strong>Address:</strong> San Bartolome, Novaliches, Quezon City
+            <strong>Address:</strong> 673 Quirino Highway, San Bartolome,
+            Novaliches, Quezon City
           </p>
           <p className="text-sm sm:text-base text-gray-500">
             <strong>Facebook:</strong>{" "}
             <a
-              href=""
+              href="https://www.facebook.com/AmaraAmourGarden"
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-500"

@@ -19,7 +19,7 @@ const Navigationbar = () => {
     <>
       <div className="shadow-md bg-white dark:bg-gray-900 dark:text-white duration-200 relative z-40">
         {/* Upper Navbar with integrated lower navbar */}
-        <div className="bg-primary/80 py-2 dark:bg-gray-700">
+        <div className="bg-primary-gradient py-2 dark:bg-gray-700">
           <div className="container flex justify-between items-center px-4 sm:px-8">
             {/* Logo */}
             <a
@@ -77,7 +77,7 @@ const Navigationbar = () => {
               <li key={data.id}>
                 <a
                   href={data.link}
-                  className="block text-black dark:text-white hover:text-black"
+                  className="block text-black dark:text-white hover:text-black font-playfair"
                 >
                   {data.name}
                 </a>
