@@ -1,6 +1,6 @@
 import React from "react";
 import Flower from "../../assets/home/Flower.jpg";
-import Background from "../../assets/home/Background.png";
+import Background from "../../assets/home/backgroundImage.png";
 import "../../index.css";
 import Slider from "react-slick";
 
