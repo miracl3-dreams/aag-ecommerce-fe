@@ -31,7 +31,7 @@ const Navigationbar = () => {
                 alt="Logo"
                 className="w-10 sm:w-12 h-10 sm:h-12 rounded-full object-cover"
               />
-              <span className="whitespace-nowrap text-black dark:text-white font-playfair text-2xl sm:text-3xl font-bold">
+              <span className="whitespace-nowrap text-black dark:text-black font-playfair text-2xl sm:text-3xl font-bold">
                 Amara Amour Garden
               </span>
             </a>
@@ -42,7 +42,7 @@ const Navigationbar = () => {
                 <li key={data.id}>
                   <a
                     href={data.link}
-                    className="text-black dark:text-white hover:text-gray-700 duration-200 font-playfair"
+                    className="text-black dark:text-black hover:text-gray-700 duration-200 font-playfair"
                   >
                     {data.name}
                   </a>

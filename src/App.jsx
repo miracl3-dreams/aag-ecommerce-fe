@@ -6,16 +6,16 @@ import Home from "./pages/Home/home";
 import Shop from "./pages/Shop/shop";
 import AboutUs from "./pages/AboutUs/aboutUs";
 import Footer from "./components/Footer/Footer";
+import Flowers from "./pages/Shop/Categories/Flowers";
+import Plants from "./pages/Shop/Categories/Plants";
+import Seeds from "./pages/Shop/Categories/Seeds";
+import Tools from "./pages/Shop/Categories/Tools";
 import DarkMode from "./components/DarkMode/DarkMode";
 
 import "aos/dist/aos.css";
 import AOS from "aos";
-// import "swiper/css";
-// import "swiper/css/pagination";
-// import "swiper/css/navigation";
-import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
 
 const App = () => {
   useEffect(() => {
@@ -37,9 +37,16 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
-            <Route path="/shop" element={<Shop />} />
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/contacts" element={<Contacts />} />
+
+            {/* SHOP ROUTES */}
+            <Route path="/shop" element={<Shop />}>
+              <Route path="categories/flowers" element={<Flowers />} />
+              <Route path="categories/plants" element={<Plants />} />
+              <Route path="categories/seeds" element={<Seeds />} />
+              <Route path="categories/tools" element={<Tools />} />
+            </Route>
           </Routes>
         </main>
         <Footer />

@@ -1,78 +1,42 @@
-// import React from "react";
-// import Img1 from "../../assets/offers/offer1.png";
-// import Img2 from "../../assets/offers/offer2.png";
-// import Img3 from "../../assets/offers/offer3.png";
-// import Img4 from "../../assets/offers/offer4.png";
-
-// const ShopData = [
-//   {
-//     id: 1,
-//     img: Img1,
-//     title: "Hair Styling",
-//     aosDelay: "0",
-//   },
-//   {
-//     id: 2,
-//     img: Img2,
-//     title: "Cream Mask",
-//     aosDelay: "200",
-//   },
-//   {
-//     id: 3,
-//     img: Img3,
-//     title: "Growth Serum",
-//     aosDelay: "400",
-//   },
-//   {
-//     id: 4,
-//     img: Img4,
-//     title: "Cream Moisturizer",
-//     aosDelay: "600",
-//   },
-// ];
-
-// const Shop = () => {
-//   return (
-//     <div className="mt-14 mb-12">
-//       <div className="container">
-//         {/* Header Section */}
-//         <div className="text-center mb-10 max-w-[500px] mx-auto">
-//           <h1 data-aos="fade-up" className="text-2xl sm:text-3xl font-bold">
-//             KGW Cosmetic Offers
-//           </h1>
-//         </div>
-//         {/* Body Section */}
-//         <div>
-//           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-5 justify-center mb-10">
-//             {ShopData.map((data) => (
-//               <div
-//                 data-aos="fade-up"
-//                 data-aos-delay={data.aosDelay}
-//                 key={data.id}
-//                 className="flex flex-col items-center"
-//               >
-//                 <img
-//                   src={data.img}
-//                   alt=""
-//                   className="h-[180px] sm:h-[220px] w-[150px] sm:w-[180px] object-cover rounded-3xl"
-//                 />
-//                 <div className="text-center mt-4">
-//                   <h3 className="font-semibold text-lg">{data.title}</h3>
-//                 </div>
-//               </div>
-//             ))}
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Shop;
 import React from "react";
+import { NavLink, Outlet } from "react-router-dom";
 
-const shop = () => {
-  return <div>shop</div>;
+const Shop = () => {
+  const navItems = [
+    { name: "Flowers", path: "categories/flowers" },
+    { name: "Plants", path: "categories/plants" },
+    { name: "Seeds", path: "categories/seeds" },
+    { name: "Tools", path: "categories/tools" },
+  ];
+
+  return (
+    <div className="min-h-screen p-6 bg-primary-gradient-light dark:bg-gray-900 text-gray-800 dark:text-white">
+      <h1 className="text-3xl font-bold mb-6 text-center font-playfair">
+        Shop Categories
+      </h1>
+
+      {/* Navigation Bar */}
+      <ul className="flex justify-center gap-6 mb-10 font-playfair">
+        {navItems.map((item, index) => (
+          <li key={index}>
+            <NavLink
+              to={item.path}
+              className={({ isActive }) =>
+                isActive
+                  ? "text-primary border-b-2 border-primary pb-1"
+                  : "hover:text-primary"
+              }
+            >
+              {item.name}
+            </NavLink>
+          </li>
+        ))}
+      </ul>
+
+      {/* Render the selected category */}
+      <Outlet />
+    </div>
+  );
 };
 
-export default shop;
+export default Shop;

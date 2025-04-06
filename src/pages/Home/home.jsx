@@ -24,7 +24,7 @@ const Home = () => {
         <div className="container mx-auto px-4 sm:px-10 relative z-10">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center py-20">
             {/* Text content */}
-            <div className="text-center sm:text-left">
+            <div className="text-center sm:text-left sm:pl-8">
               <h1 className="text-4xl sm:text-6xl font-bold font-playfair">
                 Rooted with Passion,
               </h1>
@@ -109,8 +109,12 @@ const Home = () => {
                   alt={expert.name}
                   className="w-32 h-32 mx-auto rounded-full mb-4 object-cover"
                 />
-                <h3 className="text-xl font-semibold">{expert.name}</h3>
-                <p className="text-sm">{expert.title}</p>
+                <h3 className="text-xl font-semibold text-black dark:text-white font-playfair">
+                  {expert.name}
+                </h3>
+                <p className="text-sm text-black dark:text-white font-playfair">
+                  {expert.title}
+                </p>
               </div>
             ))}
           </div>
