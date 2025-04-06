@@ -4,6 +4,11 @@ import Background from "../../assets/home/Background.png";
 import "../../index.css";
 import Slider from "react-slick";
 
+// Import expert images correctly if they're in the assets folder
+import Expert1 from "../../assets/experts/expert1.jpg";
+import Expert2 from "../../assets/experts/expert2.jpg";
+import Expert3 from "../../assets/experts/expert3.jpg";
+
 const Home = () => {
   return (
     <>
@@ -49,7 +54,7 @@ const Home = () => {
 
           <Slider
             dots={true}
-            infinite={true} 
+            infinite={true}
             speed={800}
             slidesToShow={1}
             slidesToScroll={1}
@@ -61,7 +66,7 @@ const Home = () => {
             {[...Array(3)].map((_, i) => (
               <div key={i} className="px-4">
                 <img
-                  src={Background} 
+                  src={Background}
                   alt={`Product ${i + 1}`}
                   className="w-full h-[400px] object-cover rounded-xl shadow-lg"
                 />
@@ -82,17 +87,25 @@ const Home = () => {
               {
                 name: "Amara",
                 title: "Founder & Designer",
-                image: "expert1.jpg",
+                image: Expert1,
               },
-              { name: "Leo", title: "Botanist", image: "expert2.jpg" },
-              { name: "Selena", title: "Marketing Lead", image: "expert3.jpg" },
+              {
+                name: "Leo",
+                title: "Botanist",
+                image: Expert2,
+              },
+              {
+                name: "Selena",
+                title: "Marketing Lead",
+                image: Expert3,
+              },
             ].map((expert, idx) => (
               <div
                 key={idx}
                 className="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md"
               >
                 <img
-                  src={`/src/assets/experts/${expert.image}`}
+                  src={expert.image}
                   alt={expert.name}
                   className="w-32 h-32 mx-auto rounded-full mb-4 object-cover"
                 />
