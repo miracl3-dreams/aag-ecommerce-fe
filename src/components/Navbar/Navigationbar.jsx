@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Logo from "../../assets/logo/Logo.jpg";
+import Logo from "../../../public/assets/logo/Logo.jpg";
 import { FaBars, FaTimes } from "react-icons/fa";
 import DarkMode from "../DarkMode/DarkMode";
 import { useNavigate } from "react-router-dom";

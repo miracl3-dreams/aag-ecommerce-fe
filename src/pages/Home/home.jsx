@@ -1,13 +1,13 @@
 import React from "react";
-import Flower from "../../assets/home/Flower.jpg";
-import Background from "../../assets/home/backgroundImage.png";
+import Flower from "../../../public/assets/home/Flower.jpg";
+import Background from "../../../public/assets/home/backgroundImage.png";
 import "../../index.css";
 import Slider from "react-slick";
 
 // Import expert images correctly if they're in the assets folder
-import Expert1 from "../../assets/experts/expert1.jpg";
-import Expert2 from "../../assets/experts/expert2.jpg";
-import Expert3 from "../../assets/experts/expert3.jpg";
+import Expert1 from "../../../public/assets/experts/expert1.jpg";
+import Expert2 from "../../../public/assets/experts/expert2.jpg";
+import Expert3 from "../../../public/assets/experts/expert3.jpg";
 
 const Home = () => {
   return (

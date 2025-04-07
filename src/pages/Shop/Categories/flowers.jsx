@@ -49,7 +49,7 @@ const Flowers = () => {
       {/* Image Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
         {flowerImages.map((image, index) => {
-          const imagePath = `/src/assets/shop/categories/flowers/${image}`;
+          const imagePath = `/assets/shop/categories/flowers/${image}`;
           return (
             <div
               key={index}
