@@ -5,7 +5,7 @@ const Contacts = () => {
     <>
       <div className="flex flex-col sm:flex-row justify-center items-center mt-24 mb-16 gap-16 px-4 sm:px-8 lg:px-16">
         {/* Left Section - Contact Information */}
-        <div className="bg-primary-gradient-light p-6 rounded-2xl shadow-2xl text-center w-full sm:w-1/2 h-full">
+        <div className="bg-primary-gradient-light dark:bg-white p-6 rounded-2xl shadow-2xl text-center w-full sm:w-1/2 h-full">
           <h2 className="text-xl sm:text-2xl font-semibold mb-4">Contact Us</h2>
           <p className="text-sm sm:text-base text-gray-500 mb-6">
             Feel free to inquire, and we'll assist you with your order!

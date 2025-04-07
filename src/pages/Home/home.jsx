@@ -5,7 +5,7 @@ import "../../index.css";
 import Expert1 from "../../../public/assets/experts/expert1.jpg";
 import Expert2 from "../../../public/assets/experts/expert2.jpg";
 import Expert3 from "../../../public/assets/experts/expert3.jpg";
-import { FaCommentDots } from "react-icons/fa"; 
+import { FaCommentDots } from "react-icons/fa";
 
 const Home = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -50,7 +50,6 @@ const Home = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Inquiry Submitted:", formData);
-    // You can integrate this with backend or EmailJS
     setFormData({ name: "", email: "", message: "" });
     setShowForm(false);
   };
@@ -59,7 +58,7 @@ const Home = () => {
     <>
       {/* Hero Section */}
       <div
-        className="relative min-h-[90vh] bg-cover bg-center bg-no-repeat flex justify-center items-center dark:bg-gray-800 dark:text-white"
+        className="relative min-h-[90vh] bg-cover bg-center bg-no-repeat flex justify-center items-center"
         style={{
           backgroundImage: `url(${Background})`,
           backdropFilter: "blur(6px)",
@@ -69,10 +68,10 @@ const Home = () => {
         <div className="container mx-auto px-4 sm:px-10 relative z-10">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center py-20">
             <div className="text-center sm:text-left sm:pl-8">
-              <h1 className="text-4xl sm:text-6xl font-bold font-playfair">
+              <h1 className="text-4xl sm:text-6xl font-bold font-playfair dark:text-white">
                 Rooted with Passion,
               </h1>
-              <h1 className="text-4xl sm:text-6xl font-bold font-playfair pb-6">
+              <h1 className="text-4xl sm:text-6xl font-bold font-playfair pb-6 dark:text-white">
                 Growing with Love.
               </h1>
             </div>
@@ -189,56 +188,58 @@ const Home = () => {
         <FaCommentDots size={24} />
       </button>
 
-      {/* Inquiry Modal Form */}
+      {/* Inquiry Modal Form - Centered with Animation */}
       {showForm && (
-        <div className="fixed bottom-20 right-6 z-50 bg-primary-gradient dark:bg-gray-800 p-6 rounded-xl shadow-lg w-80">
-          <h3 className="text-lg font-semibold mb-4 font-playfair text-black dark:text-black">
-            Send us a Message
-          </h3>
-          <form onSubmit={handleSubmit} className="space-y-3">
-            <input
-              type="text"
-              name="name"
-              placeholder="Name"
-              value={formData.name}
-              onChange={handleChange}
-              className="w-full p-2 rounded-xl border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
-              required
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="Email"
-              value={formData.email}
-              onChange={handleChange}
-              className="w-full p-2 rounded-xl border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
-              required
-            />
-            <textarea
-              name="message"
-              placeholder="Your message..."
-              value={formData.message}
-              onChange={handleChange}
-              className="w-full p-2 rounded-xl border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
-              rows="3"
-              required
-            ></textarea>
-            <div className="flex justify-end gap-2">
-              <button
-                type="button"
-                onClick={toggleForm}
-                className="text-sm px-3 py-1 rounded-xl bg-red-500 dark:bg-red-500 text-black dark:text-white"
-              >
-                Cancel
-              </button>
-              <button
-                type="submit"
-                className="text-sm px-3 py-1 rounded-xl bg-green-600 hover:bg-green-700 text-white"
-              >
-                Send
-              </button>
-            </div>
-          </form>
+        <div className="fixed inset-0 z-50 bg-black bg-opacity-50 flex justify-center items-center transition-opacity duration-300">
+          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-xl w-[90%] max-w-md transform scale-95 animate-fadeIn">
+            <h3 className="text-lg font-semibold mb-4 font-playfair text-black dark:text-white text-center">
+              Send us a Message
+            </h3>
+            <form onSubmit={handleSubmit} className="space-y-3">
+              <input
+                type="text"
+                name="name"
+                placeholder="Name"
+                value={formData.name}
+                onChange={handleChange}
+                className="w-full p-2 rounded-xl border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+                required
+              />
+              <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                value={formData.email}
+                onChange={handleChange}
+                className="w-full p-2 rounded-xl border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+                required
+              />
+              <textarea
+                name="message"
+                placeholder="Your message..."
+                value={formData.message}
+                onChange={handleChange}
+                className="w-full p-2 rounded-xl border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+                rows="3"
+                required
+              ></textarea>
+              <div className="flex justify-end gap-2">
+                <button
+                  type="button"
+                  onClick={toggleForm}
+                  className="text-sm px-3 py-1 rounded-xl bg-red-500 text-white"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  className="text-sm px-3 py-1 rounded-xl bg-green-600 hover:bg-green-700 text-white"
+                >
+                  Send
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       )}
     </>
