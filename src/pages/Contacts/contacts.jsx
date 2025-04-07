@@ -47,7 +47,7 @@ const Contacts = () => {
 
           {/* Inquire Now button */}
           <a
-            href="https://www.facebook.com/profile.php?id=61573162643583"
+            href="https://www.facebook.com/profile.php?id=61572739294910"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-blue-500 text-white py-2 px-6 rounded-full hover:bg-blue-600 duration-300 mb-6 inline-block"
