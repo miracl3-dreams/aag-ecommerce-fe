@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-// Array of flower image names
 const flowerImages = [
   "BEGONIAS.jpg",
   "BOUGAINVILLEA.jpg",
@@ -34,19 +33,15 @@ const flowerImages = [
 const Flowers = () => {
   const [selectedImage, setSelectedImage] = useState(null);
 
-  const handleClick = (image) => {
-    setSelectedImage(image);
-  };
-
-  const handleClose = () => {
-    setSelectedImage(null);
-  };
+  const handleClick = (image) => setSelectedImage(image);
+  const handleClose = () => setSelectedImage(null);
 
   return (
-    <div className="min-h-screen p-6 bg-primary-gradient-light dark:bg-gray-900 text-gray-800 dark:text-white">
-      <h2 className="text-2xl font-bold text-center mb-6">Flower Shop</h2>
+    <div className="p-6">
+      <h2 className="text-2xl font-bold text-center mb-6 font-playfair">
+        Flower Shop
+      </h2>
 
-      {/* Image Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
         {flowerImages.map((image, index) => {
           const imagePath = `/assets/shop/categories/flowers/${image}`;
@@ -69,20 +64,19 @@ const Flowers = () => {
         })}
       </div>
 
-      {/* Modal */}
       {selectedImage && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60">
-          <div className="bg-white dark:bg-gray-800 p-6 rounded-lg max-w-lg w-full text-center relative">
-            <button
-              onClick={handleClose}
-              className="absolute top-2 right-2 text-gray-700 dark:text-gray-300 hover:text-red-500 text-xl"
-            >
-              &times;
-            </button>
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80">
+          <button
+            onClick={handleClose}
+            className="absolute top-4 right-4 text-white text-3xl font-bold z-50"
+          >
+            &times;
+          </button>
+          <div className="w-full h-full flex items-center justify-center p-4">
             <img
-              src={`/src/assets/shop/categories/flowers/${selectedImage}`}
+              src={`/assets/shop/categories/flowers/${selectedImage}`}
               alt={selectedImage}
-              className="w-full h-72 object-contain rounded mb-4"
+              className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
             />
           </div>
         </div>

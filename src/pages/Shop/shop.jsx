@@ -1,40 +1,90 @@
-import React from "react";
-import { NavLink, Outlet } from "react-router-dom";
+import React, { useEffect } from "react";
+import { NavLink, Outlet, useLocation } from "react-router-dom";
 
 const Shop = () => {
   const navItems = [
-    { name: "Flowers", path: "categories/flowers" },
-    { name: "Fertilizers", path: "categories/fertilizers" },
-    { name: "Plants", path: "categories/plants" },
-    { name: "Seeds", path: "categories/seeds" },
-    { name: "Tools", path: "categories/tools" },
+    {
+      name: "Flowers",
+      path: "categories/flowers",
+      logo: "/assets/logo/LogoFlower.jpg",
+    },
+    {
+      name: "Fertilizers",
+      path: "categories/fertilizers",
+      logo: "/assets/logo/LogoFertilizer.jpg",
+    },
+    {
+      name: "Plants",
+      path: "categories/plants",
+      logo: "/assets/logo/LogoPlant.jpg",
+    },
+    {
+      name: "Seeds",
+      path: "categories/seeds",
+      logo: "/assets/logo/LogoSeeds.jpg",
+    },
+    {
+      name: "Tools",
+      path: "categories/tools",
+      logo: "/assets/logo/LogoTools.jpg",
+    },
   ];
+
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
 
   return (
     <div className="min-h-screen p-6 bg-primary-gradient-light dark:bg-gray-900 text-gray-800 dark:text-white">
-      <h1 className="text-3xl font-bold mb-6 text-center font-playfair">
-        Shop Categories
+      <h1 className="text-5xl font-bold mb-10 text-center font-playfair">
+        Shop Now!
       </h1>
 
-      {/* Navigation Bar */}
-      <ul className="flex justify-center gap-6 mb-10 font-playfair">
-        {navItems.map((item, index) => (
-          <li key={index}>
-            <NavLink
-              to={item.path}
-              className={({ isActive }) =>
-                isActive
-                  ? "text-primary border-b-2 border-primary pb-1"
-                  : "hover:text-primary"
-              }
+      <ul className="flex flex-wrap justify-center gap-20 mb-12 font-playfair text-xl text-center">
+        {navItems.map((item, index) => {
+          const isActive = location.pathname.includes(item.path);
+          return (
+            <li
+              key={index}
+              className={`flex flex-col items-center space-y-3 transition-all duration-300 ${
+                isActive ? "scale-105" : "hover:scale-105"
+              }`}
             >
-              {item.name}
-            </NavLink>
-          </li>
-        ))}
+              {/* Wrapping the logo inside the NavLink to make it clickable */}
+              <NavLink to={item.path}>
+                <div
+                  className={`rounded-full p-1 transition-all duration-300 ${
+                    isActive
+                      ? "ring-4 ring-primary ring-offset-2 ring-offset-white dark:ring-offset-gray-900"
+                      : ""
+                  }`}
+                >
+                  <img
+                    src={item.logo}
+                    alt={`${item.name} Logo`}
+                    className="w-20 h-20 object-cover rounded-full shadow-md"
+                  />
+                </div>
+              </NavLink>
+
+              {/* The text below the logo */}
+              <NavLink
+                to={item.path}
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-primary border-b-2 border-primary pb-1 transition-all duration-300"
+                    : "hover:text-primary p-2"
+                }
+              >
+                {item.name}
+              </NavLink>
+            </li>
+          );
+        })}
       </ul>
 
-      {/* Render the selected category */}
       <Outlet />
     </div>
   );
