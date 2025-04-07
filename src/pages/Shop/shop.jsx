@@ -42,7 +42,8 @@ const Shop = () => {
         Shop Now!
       </h1>
 
-      <ul className="flex flex-wrap justify-center gap-20 mb-12 font-playfair text-xl text-center">
+      {/* vertical on mobile, horizontal/grid on sm+ screens */}
+      <ul className="flex flex-col sm:flex-row sm:flex-wrap sm:justify-center gap-10 sm:gap-20 mb-12 font-playfair text-xl text-center items-center">
         {navItems.map((item, index) => {
           const isActive = location.pathname.includes(item.path);
           return (
@@ -52,7 +53,6 @@ const Shop = () => {
                 isActive ? "scale-105" : "hover:scale-105"
               }`}
             >
-              {/* Wrapping the logo inside the NavLink to make it clickable */}
               <NavLink to={item.path}>
                 <div
                   className={`rounded-full p-1 transition-all duration-300 ${
@@ -69,7 +69,6 @@ const Shop = () => {
                 </div>
               </NavLink>
 
-              {/* The text below the logo */}
               <NavLink
                 to={item.path}
                 className={({ isActive }) =>
