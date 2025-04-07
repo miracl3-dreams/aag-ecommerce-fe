@@ -5,32 +5,55 @@ import "../../index.css";
 import Expert1 from "../../../public/assets/experts/expert1.jpg";
 import Expert2 from "../../../public/assets/experts/expert2.jpg";
 import Expert3 from "../../../public/assets/experts/expert3.jpg";
+import { FaCommentDots } from "react-icons/fa"; 
 
 const Home = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [showForm, setShowForm] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
 
   const bestSellers = [
     {
       name: "Vermicompost",
       image: "/assets/home/bestSeller/FertilizerVermicompost.jpg",
-      price: 250, // Price for Vermicompost
+      price: 250,
     },
     {
       name: "Carnations",
       image: "/assets/home/bestSeller/FlowersCARNATIONS.jpg",
-      price: 180, // Price for Carnations
+      price: 180,
     },
     {
       name: "Succulents",
       image: "/assets/home/bestSeller/PlantsSUCCULENTS.jpg",
-      price: 200, // Price for Succulents
+      price: 200,
     },
     {
       name: "Cilantro",
       image: "/assets/home/bestSeller/SeedsCilantro.jpg",
-      price: 50, // Price for Cilantro
+      price: 50,
     },
   ];
+
+  const toggleForm = () => {
+    setShowForm(!showForm);
+  };
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Inquiry Submitted:", formData);
+    // You can integrate this with backend or EmailJS
+    setFormData({ name: "", email: "", message: "" });
+    setShowForm(false);
+  };
 
   return (
     <>
@@ -53,7 +76,6 @@ const Home = () => {
                 Growing with Love.
               </h1>
             </div>
-
             <div className="flex justify-center">
               <img
                 src={Flower}
@@ -65,13 +87,12 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Section 2: Best Selling Products - Grid of 4 Images */}
+      {/* Section 2: Best Selling Products */}
       <section className="py-16 bg-primary-gradient-light dark:bg-gray-900">
         <div className="container mx-auto px-4 sm:px-10">
           <h2 className="text-3xl font-bold font-playfair text-center mb-10 dark:text-white">
             Best Selling Products
           </h2>
-
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {bestSellers.map((product, i) => (
               <div
@@ -96,19 +117,16 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Modal */}
+      {/* Product Modal */}
       {selectedProduct && (
         <div className="fixed inset-0 bg-black bg-opacity-80 z-50 flex justify-center items-center">
           <div className="relative w-full h-full flex justify-center items-center">
-            {/* Close Button */}
             <button
               onClick={() => setSelectedProduct(null)}
               className="absolute top-6 right-6 text-white text-4xl z-50"
             >
               &times;
             </button>
-
-            {/* Image and Name */}
             <div className="flex flex-col items-center">
               <img
                 src={selectedProduct.image}
@@ -126,7 +144,7 @@ const Home = () => {
         </div>
       )}
 
-      {/* Section 3: Meet These Experts */}
+      {/* Section 3: Meet Our Experts */}
       <section className="py-16 bg-primary-gradient dark:bg-gray-800 text-center text-white">
         <div className="container mx-auto px-4 sm:px-10">
           <h2 className="text-3xl font-bold font-playfair mb-12 text-black">
@@ -162,6 +180,67 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* Floating Chat Icon */}
+      <button
+        className="fixed bottom-6 right-6 z-50 bg-green-600 hover:bg-green-700 text-white p-4 rounded-full shadow-lg transition duration-300"
+        onClick={toggleForm}
+      >
+        <FaCommentDots size={24} />
+      </button>
+
+      {/* Inquiry Modal Form */}
+      {showForm && (
+        <div className="fixed bottom-20 right-6 z-50 bg-primary-gradient dark:bg-gray-800 p-6 rounded-xl shadow-lg w-80">
+          <h3 className="text-lg font-semibold mb-4 font-playfair text-black dark:text-black">
+            Send us a Message
+          </h3>
+          <form onSubmit={handleSubmit} className="space-y-3">
+            <input
+              type="text"
+              name="name"
+              placeholder="Name"
+              value={formData.name}
+              onChange={handleChange}
+              className="w-full p-2 rounded-xl border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+              required
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              value={formData.email}
+              onChange={handleChange}
+              className="w-full p-2 rounded-xl border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+              required
+            />
+            <textarea
+              name="message"
+              placeholder="Your message..."
+              value={formData.message}
+              onChange={handleChange}
+              className="w-full p-2 rounded-xl border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+              rows="3"
+              required
+            ></textarea>
+            <div className="flex justify-end gap-2">
+              <button
+                type="button"
+                onClick={toggleForm}
+                className="text-sm px-3 py-1 rounded-xl bg-red-500 dark:bg-red-500 text-black dark:text-white"
+              >
+                Cancel
+              </button>
+              <button
+                type="submit"
+                className="text-sm px-3 py-1 rounded-xl bg-green-600 hover:bg-green-700 text-white"
+              >
+                Send
+              </button>
+            </div>
+          </form>
+        </div>
+      )}
     </>
   );
 };

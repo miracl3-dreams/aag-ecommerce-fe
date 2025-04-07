@@ -23,10 +23,7 @@ const Contacts = () => {
               </a>
             </p>
             <p className="text-sm sm:text-base text-gray-500">
-              <strong>Phone:</strong>{" "}
-              <a href="tel:+639810736741" className="text-blue-500">
-                09810736741
-              </a>
+              <strong>Phone:</strong>{" "} 09810736741
             </p>
             <p className="text-sm sm:text-base text-gray-500">
               <strong>Address:</strong> 673 Quirino Highway, San Bartolome,
