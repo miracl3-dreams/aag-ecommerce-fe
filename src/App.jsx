@@ -31,29 +31,34 @@ const App = () => {
   }, []);
 
   return (
-    <Router>
-      <div className="flex flex-col min-h-screen relative">
-        <Navigationbar />
-        <main className="flex-grow bg-primary-gradient dark:bg-gray-750">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/about-us" element={<AboutUs />} />
-            <Route path="/contacts" element={<Contacts />} />
+    <>
+      <Router>
+        <div className="flex flex-col min-h-screen relative">
+          <Navigationbar />
+          <main className="flex-grow bg-primary-gradient dark:bg-gray-750">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/home" element={<Home />} />
+              <Route path="/about-us" element={<AboutUs />} />
+              <Route path="/contacts" element={<Contacts />} />
 
-            {/* SHOP ROUTES */}
-            <Route path="/shop" element={<Shop />}>
-              <Route path="categories/flowers" element={<Flowers />} />
-              <Route path="categories/fertilizers" element={<Fertilizers />} />
-              <Route path="categories/plants" element={<Plants />} />
-              <Route path="categories/seeds" element={<Seeds />} />
-              <Route path="categories/tools" element={<Tools />} />
-            </Route>
-          </Routes>
-        </main>
-        <Footer />
-      </div>
-    </Router>
+              {/* SHOP ROUTES */}
+              <Route path="/shop" element={<Shop />}>
+                <Route path="categories/flowers" element={<Flowers />} />
+                <Route
+                  path="categories/fertilizers"
+                  element={<Fertilizers />}
+                />
+                <Route path="categories/plants" element={<Plants />} />
+                <Route path="categories/seeds" element={<Seeds />} />
+                <Route path="categories/tools" element={<Tools />} />
+              </Route>
+            </Routes>
+          </main>
+          <Footer />
+        </div>
+      </Router>
+    </>
   );
 };
 
