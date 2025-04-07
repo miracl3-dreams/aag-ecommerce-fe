@@ -13,18 +13,22 @@ const Home = () => {
     {
       name: "Vermicompost",
       image: "/assets/home/bestSeller/FertilizerVermicompost.jpg",
+      price: 250, // Price for Vermicompost
     },
     {
-      name: "Flower Mix",
+      name: "Carnations",
       image: "/assets/home/bestSeller/FlowersCARNATIONS.jpg",
+      price: 180, // Price for Carnations
     },
     {
-      name: "Plant Set",
+      name: "Succulents",
       image: "/assets/home/bestSeller/PlantsSUCCULENTS.jpg",
+      price: 200, // Price for Succulents
     },
     {
-      name: "Seed Pack",
+      name: "Cilantro",
       image: "/assets/home/bestSeller/SeedsCilantro.jpg",
+      price: 50, // Price for Cilantro
     },
   ];
 
@@ -83,6 +87,9 @@ const Home = () => {
                 <h3 className="text-lg font-semibold text-center text-gray-800 dark:text-white font-playfair">
                   {product.name}
                 </h3>
+                <p className="text-center text-gray-700 dark:text-white">
+                  ₱{product.price.toFixed(2)}
+                </p>
               </div>
             ))}
           </div>
@@ -111,6 +118,9 @@ const Home = () => {
               <h2 className="mt-4 text-3xl font-bold text-white font-playfair text-center">
                 {selectedProduct.name}
               </h2>
+              <p className="text-xl text-white text-center">
+                ₱{selectedProduct.price.toFixed(2)}
+              </p>
             </div>
           </div>
         </div>
