@@ -17,21 +17,21 @@ const Navigationbar = () => {
 
   return (
     <>
-      <div className="shadow-md bg-white dark:bg-gray-900 dark:text-white duration-200 relative z-40">
+      <div className="shadow-md bg-[#F8EECF] dark:bg-gray-900 dark:text-white duration-200 relative z-40">
         {/* Upper Navbar with integrated lower navbar */}
-        <div className="bg-primary-gradient py-2 dark:bg-gray-700">
+        <div className="bg-[#F8EECF] py-2 dark:bg-gray-700">
           <div className="container flex justify-between items-center px-4 sm:px-8">
             {/* Logo */}
             <a
-              href="#"
+              href="/home"
               className="flex items-center gap-2 font-bold text-2xl sm:text-3xl"
             >
               <img
                 src={Logo}
                 alt="Logo"
-                className="w-10 sm:w-12 h-10 sm:h-12 rounded-full object-cover"
+                className="w-10 sm:w-12 h-10 sm:h-12 rounded-full object-cover border-2 border-black"
               />
-              <span className="whitespace-nowrap text-black dark:text-black font-playfair text-2xl sm:text-3xl font-bold">
+              <span className="whitespace-nowrap text-black dark:text-white font-playfair text-2xl sm:text-3xl font-bold">
                 Amara Amour Garden
               </span>
             </a>
@@ -42,7 +42,7 @@ const Navigationbar = () => {
                 <li key={data.id}>
                   <a
                     href={data.link}
-                    className="text-black dark:text-black hover:bg-gray-700rounded-full duration-200 font-playfair"
+                    className="text-black dark:text-white font-playfair border-b-2 border-transparent hover:border-black transition-all duration-300 pb-1"
                   >
                     {data.name}
                   </a>

@@ -38,7 +38,7 @@ const Shop = () => {
 
   return (
     <>
-      <div className="min-h-screen p-6 bg-primary-gradient-light dark:bg-gray-900 text-gray-800 dark:text-white">
+      <div className="min-h-[75vh] p-6 bg-primary-gradient-light dark:bg-gray-900 text-gray-800 dark:text-white">
         <h1 className="text-5xl font-bold mb-10 text-center font-playfair">
           Shop Now!
         </h1>
@@ -74,7 +74,7 @@ const Shop = () => {
                   to={item.path}
                   className={({ isActive }) =>
                     isActive
-                      ? "text-primary border-b-2 border-primary pb-1 transition-all duration-300"
+                      ? "text-primary border-b-2 border-black pb-1 transition-all duration-300"
                       : "hover:text-primary p-2"
                   }
                 >

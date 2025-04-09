@@ -1,87 +1,117 @@
-import React from "react";
+import React, { useRef } from "react";
+import { FaEnvelope, FaPhone, FaMapMarkerAlt } from "react-icons/fa";
+import emailjs from "@emailjs/browser";
 
 const Contacts = () => {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_5s8pg5s", 
+        "template_s00oqkk", 
+        form.current,
+        "TYwjK4dBOxwBHcdNj" 
+      )
+      .then(
+        () => {
+          alert("Message sent successfully!");
+          form.current.reset();
+        },
+        () => {
+          alert("Failed to send message. Please try again.");
+        }
+      );
+  };
+
   return (
-    <>
-      <div className="flex flex-col sm:flex-row justify-center items-center mt-24 mb-16 gap-16 px-4 sm:px-8 lg:px-16">
-        {/* Left Section - Contact Information */}
-        <div className="bg-primary-gradient-light dark:bg-white p-6 rounded-2xl shadow-2xl text-center w-full sm:w-1/2 h-full">
-          <h2 className="text-xl sm:text-2xl font-semibold mb-4">Contact Us</h2>
-          <p className="text-sm sm:text-base text-gray-500 mb-6">
-            Feel free to inquire, and we'll assist you with your order!
-          </p>
+    <div className="flex flex-col lg:flex-row items-stretch justify-center gap-10 mt-16 mb-16 px-4 sm:px-8 lg:px-16">
+      {/* Contact Info (Left Side) */}
+      <div className="bg-[#F8EECF] border-[#7C2A2A] border-4 dark:bg-white p-8 rounded-2xl shadow-2xl w-full lg:w-1/2 flex flex-col justify-between">
+        <div>
+          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 font-playfair">
+            BLOOM WITH US - OUR OPENING HOURS
+          </h2>
 
-          {/* Contact details */}
-          <div className="mb-6">
-            <p className="text-sm sm:text-base text-gray-500">
-              <strong>Email:</strong>{" "}
-              <a
-                href="mailto:amaraamourgarden@gmail.com"
-                className="text-blue-500"
-              >
-                amaraamourgarden@gmail.com
-              </a>
-            </p>
-            <p className="text-sm sm:text-base text-gray-500">
-              <strong>Phone:</strong>{" "} 09810736741
-            </p>
-            <p className="text-sm sm:text-base text-gray-500">
-              <strong>Address:</strong> 673 Quirino Highway, San Bartolome,
-              Novaliches, Quezon City
-            </p>
-            <p className="text-sm sm:text-base text-gray-500">
-              <strong>Facebook:</strong>{" "}
-              <a
-                href="https://www.facebook.com/AmaraAmourGarden"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-500"
-              >
-                Amara Amour Garden
-              </a>
-            </p>
-          </div>
+          <div className="mb-6 text-gray-700 text-sm sm:text-base">
+            <p className="font-semibold mb-2">Weekdays:</p>
+            <ul className="mb-4 list-disc list-inside">
+              <li>Tuesday - 9:00 AM to 5:00 PM</li>
+              <li>Wednesday - 9:00 AM to 5:00 PM</li>
+              <li>Thursday - 9:00 AM to 5:00 PM</li>
+            </ul>
 
-          {/* Inquire Now button */}
-          <a
-            href="https://www.facebook.com/profile.php?id=61572739294910"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-blue-500 text-white py-2 px-6 rounded-full hover:bg-blue-600 duration-300 mb-6 inline-block"
-          >
-            Inquire Now
-          </a>
-
-          {/* Social Media Icons */}
-          <div className="flex justify-center space-x-6">
-            {/* Example social media icon, replace with your actual icons */}
-            <a
-              href="https://facebook.com/AmaraAmourGarden"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-600 hover:text-blue-500"
-            >
-              <i className="fab fa-facebook-f"></i> {/* Example icon */}
-            </a>
-            {/* Add other social media icons as needed */}
+            <p className="font-semibold mb-2">Weekends:</p>
+            <ul className="list-disc list-inside">
+              <li>Friday - 9:00 AM to 5:00 PM</li>
+              <li>Saturday - 9:00 AM to 5:00 PM</li>
+              <li>Sunday - 9:00 AM to 8:00 PM</li>
+            </ul>
           </div>
         </div>
 
-        {/* Right Section - Google Map Location */}
-        <div className="w-full sm:w-1/2 rounded-2xl">
-          <div className="mb-6">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12159.158941073696!2d121.04850129999999!3d14.7488203!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33b5fd5f0e8c7f01%3A0xb46614e0d5973a0!2sSan%20Bartolome%2C%20Novaliches%2C%20Quezon%20City%2C%20Metro%20Manila!5e0!3m2!1sen!2sph!4v1678298232201!5m2!1sen!2sph"
-              width="100%"
-              height="250"
-              style={{ border: 0 }}
-              allowFullScreen=""
-              loading="lazy"
-            ></iframe>
+        <div>
+          <h3 className="text-xl font-semibold text-center mb-4">
+            Let's stay in touch!
+          </h3>
+
+          <div className="space-y-3 text-gray-700 text-sm sm:text-base">
+            <p className="flex items-center gap-3">
+              <FaEnvelope className="text-blue-600" />
+              <span>amaraamourgarden@gmail.com</span>
+            </p>
+            <p className="flex items-center gap-3">
+              <FaPhone className="text-green-600" />
+              <span>09810736741</span>
+            </p>
+            <p className="flex items-center gap-3">
+              <FaMapMarkerAlt className="text-red-500" />
+              <span>Brgy. San Bartolome, Novaliches, Quezon City</span>
+            </p>
           </div>
         </div>
       </div>
-    </>
+
+      {/* EmailJS Form (Right Side) */}
+      <div className="bg-[#F8EECF] border-[#7C2A2A] border-4 dark:bg-white p-8 rounded-2xl shadow-2xl w-full lg:w-1/2 flex flex-col justify-between">
+        <div>
+          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 font-playfair">
+            Inquiry Form
+          </h2>
+          <form ref={form} onSubmit={sendEmail} className="space-y-4">
+            <input
+              type="text"
+              name="user_name"
+              placeholder="Your Name"
+              required
+              className="w-full px-4 py-2 rounded-xl border border-gray-300 font-playfair"
+            />
+            <input
+              type="email"
+              name="user_email"
+              placeholder="Your Email"
+              required
+              className="w-full px-4 py-2 rounded-xl border border-gray-300 font-playfair"
+            />
+            <textarea
+              name="message"
+              placeholder="Your Message"
+              rows="4"
+              required
+              className="w-full px-4 py-2 rounded-xl border border-gray-300 font-playfair"
+            ></textarea>
+            <button
+              type="submit"
+              className="bg-[#7C2A2A] hover:bg-[#a03e3e] text-white px-6 py-2 rounded-xl w-full"
+            >
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
   );
 };
 
