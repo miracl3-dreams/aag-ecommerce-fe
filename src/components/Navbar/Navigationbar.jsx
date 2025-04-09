@@ -36,8 +36,8 @@ const Navigationbar = () => {
               </span>
             </a>
 
-            {/* Navigation Menu pushed to far right */}
-            <ul className="hidden sm:flex items-center gap-6 ml-auto font-bold">
+            {/* Desktop Navigation Menu (hidden below 701px) */}
+            <ul className="hidden min-[701px]:flex items-center gap-6 ml-auto font-bold">
               {Menu.map((data) => (
                 <li key={data.id}>
                   <a
@@ -50,14 +50,14 @@ const Navigationbar = () => {
               ))}
             </ul>
 
-            {/* Dark Mode Toggle */}
-            <div className="hidden sm:flex items-center gap-4 ml-4">
+            {/* Desktop Dark Mode Toggle (hidden below 701px) */}
+            <div className="hidden min-[701px]:flex items-center gap-4 ml-4">
               <DarkMode />
             </div>
 
-            {/* Mobile Burger Menu Button */}
+            {/* Mobile Burger Menu Button (visible below 701px) */}
             <button
-              className="sm:hidden text-xl focus:outline-none"
+              className="text-xl focus:outline-none min-[701px]:hidden"
               onClick={() => setMenuOpen(!menuOpen)}
             >
               {menuOpen ? <FaTimes /> : <FaBars />}
@@ -65,13 +65,12 @@ const Navigationbar = () => {
           </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu (only visible on 700px and below) */}
         <div
-          className={`sm:hidden ${
+          className={`min-[701px]:hidden ${
             menuOpen ? "block" : "hidden"
           } bg-white dark:bg-black py-4 px-6 shadow-md`}
         >
-          {/* Navigation Links */}
           <ul className="flex flex-col gap-4">
             {Menu.map((data) => (
               <li key={data.id}>
@@ -84,6 +83,11 @@ const Navigationbar = () => {
               </li>
             ))}
           </ul>
+
+          {/* Dark Mode for Mobile */}
+          <div className="mt-4">
+            <DarkMode />
+          </div>
         </div>
       </div>
     </>
