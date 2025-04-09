@@ -6,6 +6,9 @@ import Expert1 from "../../../public/assets/experts/expert1.jpg";
 import Expert2 from "../../../public/assets/experts/expert2.jpg";
 import Expert3 from "../../../public/assets/experts/expert3.jpg";
 import { FaUserCircle } from "react-icons/fa";
+import emailjs from "@emailjs/browser";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Home = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -49,24 +52,42 @@ const Home = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Inquiry Submitted:", formData);
-    setFormData({ name: "", email: "", message: "" });
-    setShowForm(false);
+
+    emailjs
+      .send(
+        "service_priw7f4",
+        "template_3wwucgi",
+        formData,
+        "TYwjK4dBOxwBHcdNj"
+      )
+      .then(
+        () => {
+          toast.success("Customer Feedback sent successfully!");
+          setFormData({ name: "", email: "", message: "" });
+          setShowForm(false);
+        },
+        () => {
+          toast.error("Failed to send message. Please try again.");
+        }
+      );
   };
 
   return (
     <>
+      {/* Toast Notifications */}
+      <ToastContainer />
+
       {/* Hero Section */}
       <div
-        className="relative min-h-[90vh] bg-cover bg-center bg-no-repeat flex justify-center items-center"
+        className="relative min-h-[90vh] bg-cover bg-center flex justify-center items-center"
         style={{
           backgroundImage: `url(${Background})`,
           backdropFilter: "blur(6px)",
         }}
       >
-        <div className="bg-white/50 dark:bg-black/50 backdrop-blur-md w-full h-full absolute top-0 left-0 z-0" />
-        <div className="container mx-auto px-4 sm:px-10 relative z-10">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center py-20">
+        <div className="bg-white/50 dark:bg-black/50 backdrop-blur-md absolute w-full h-full z-0 top-0 left-0" />
+        <div className="relative z-10 container mx-auto px-4 sm:px-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 items-center py-20">
             <div className="text-center sm:text-left sm:pl-8">
               <h1 className="text-4xl sm:text-6xl font-bold font-playfair dark:text-white">
                 Rooted with Passion,
@@ -79,14 +100,14 @@ const Home = () => {
               <img
                 src={Flower}
                 alt="Flower"
-                className="w-[300px] h-[350px] sm:h-[400px] sm:w-[450px] object-contain rounded-3xl mt-5 image-animation"
+                className="w-[300px] h-[350px] sm:w-[450px] sm:h-[400px] object-contain rounded-3xl mt-5 image-animation"
               />
             </div>
           </div>
         </div>
       </div>
 
-      {/* Section 2: Best Selling Products */}
+      {/* Best Selling Products */}
       <section className="py-16 bg-primary-gradient-light dark:bg-gray-900">
         <div className="container mx-auto px-4 sm:px-10">
           <h2 className="text-3xl font-bold font-playfair text-center mb-10 dark:text-white">
@@ -96,7 +117,7 @@ const Home = () => {
             {bestSellers.map((product, i) => (
               <div
                 key={i}
-                className="bg-[#F8EECF] border-2 border-black dark:bg-gray-800 p-4 rounded-xl shadow-lg cursor-pointer transition transform hover:scale-105"
+                className="bg-[#F8EECF] border-2 border-black dark:bg-gray-800 p-4 rounded-xl shadow-lg cursor-pointer hover:scale-105 transition-transform"
                 onClick={() => setSelectedProduct(product)}
               >
                 <img
@@ -143,7 +164,7 @@ const Home = () => {
         </div>
       )}
 
-      {/* Section 3: Meet Our Experts */}
+      {/* Meet Our Experts */}
       <section className="py-16 bg-primary-gradient dark:bg-gray-800 text-center text-white">
         <div className="container mx-auto px-4 sm:px-10">
           <h2 className="text-3xl font-bold font-playfair mb-12 text-black">
@@ -180,26 +201,30 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Floating Chat Icon */}
+      {/* Floating Customer Feedback Icon */}
       <button
-        className="fixed bottom-6 right-6 z-50 bg-green-600 hover:bg-green-700 text-white p-4 rounded-full shadow-lg transition duration-300"
         onClick={toggleForm}
+        className="fixed bottom-6 right-6 z-50 bg-green-600 hover:bg-green-700 text-white p-4 rounded-full shadow-lg"
       >
         <FaUserCircle size={24} />
       </button>
 
-      {/* Inquiry Modal Form - Centered with Animation */}
+      {/* Customer Feedback Modal Form */}
       {showForm && (
-        <div className="fixed inset-0 z-50 bg-black bg-opacity-50 flex justify-center items-center transition-opacity duration-300">
-          <div className="border-2 border-black bg-[#F8EECF] dark:bg-gray-800 p-6 rounded-xl shadow-xl w-[90%] max-w-md transform scale-95 animate-fadeIn">
-            <h3 className="text-lg font-semibold mb-4 font-playfair text-black dark:text-white text-center">
-              Customer Feedback
+        <div className="fixed inset-0 z-50 bg-black bg-opacity-50 flex justify-center items-center">
+          <div className="border-2 border-black bg-[#F8EECF] dark:bg-gray-800 p-6 rounded-xl shadow-xl w-[90%] max-w-md animate-fadeIn transform scale-95">
+            <h3 className="text-xl font-semibold mb-4 font-playfair text-black dark:text-white text-center">
+              We'd Love Your Feedback 💬
             </h3>
+            <p className="text-sm text-center text-gray-600 dark:text-gray-300 mb-4 font-playfair">
+              Please share your thoughts with us. Your feedback helps us
+              improve!
+            </p>
             <form onSubmit={handleSubmit} className="space-y-3">
               <input
                 type="text"
                 name="name"
-                placeholder="Name"
+                placeholder="Your name"
                 value={formData.name}
                 onChange={handleChange}
                 className="w-full p-2 rounded-xl border-2 border-black dark:border-gray-600 dark:bg-gray-700 dark:text-white font-playfair"
@@ -208,7 +233,7 @@ const Home = () => {
               <input
                 type="email"
                 name="email"
-                placeholder="Email"
+                placeholder="Your email"
                 value={formData.email}
                 onChange={handleChange}
                 className="w-full p-2 rounded-xl border-2 border-black dark:border-gray-600 dark:bg-gray-700 dark:text-white font-playfair"
@@ -216,7 +241,7 @@ const Home = () => {
               />
               <textarea
                 name="message"
-                placeholder="Your message..."
+                placeholder="Your feedback..."
                 value={formData.message}
                 onChange={handleChange}
                 className="w-full p-2 rounded-xl border-2 border-black dark:border-gray-600 dark:bg-gray-700 dark:text-white font-playfair"
@@ -235,7 +260,7 @@ const Home = () => {
                   type="submit"
                   className="text-sm px-3 py-1 rounded-xl bg-green-600 hover:bg-green-700 text-white font-playfair"
                 >
-                  Send
+                  Submit
                 </button>
               </div>
             </form>
