@@ -17,9 +17,9 @@ const Navigationbar = () => {
 
   return (
     <>
-      <div className="shadow-md bg-[#F8EECF] dark:bg-gray-900 dark:text-white duration-200 relative z-40">
+      <div className="shadow-md bg-primary-gradient dark:bg-gray-900 dark:text-white duration-200 relative z-40">
         {/* Upper Navbar with integrated lower navbar */}
-        <div className="bg-[#F8EECF] py-2 dark:bg-gray-700">
+        <div className="bg-primary-gradient py-2 dark:bg-gray-700">
           <div className="container flex justify-between items-center px-4 sm:px-8">
             {/* Logo */}
             <a

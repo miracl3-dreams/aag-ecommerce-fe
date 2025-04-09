@@ -1,6 +1,8 @@
 import React, { useRef } from "react";
 import { FaEnvelope, FaPhone, FaMapMarkerAlt } from "react-icons/fa";
 import emailjs from "@emailjs/browser";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const Contacts = () => {
   const form = useRef();
@@ -10,25 +12,27 @@ const Contacts = () => {
 
     emailjs
       .sendForm(
-        "service_priw7f4", 
-        "template_s00oqkk", 
+        "service_priw7f4",
+        "template_s00oqkk",
         form.current,
-        "TYwjK4dBOxwBHcdNj" 
+        "TYwjK4dBOxwBHcdNj"
       )
       .then(
         () => {
-          alert("Message sent successfully!");
+          toast.success("Message sent successfully!");
           form.current.reset();
         },
         () => {
-          alert("Failed to send message. Please try again.");
+          toast.error("Failed to send message. Please try again.");
         }
       );
   };
 
   return (
     <div className="flex flex-col lg:flex-row items-stretch justify-center gap-10 mt-16 mb-16 px-4 sm:px-8 lg:px-16">
-      {/* Contact Info (Left Side) */}
+      <ToastContainer />
+      
+      {/* Contact Info */}
       <div className="bg-[#F8EECF] border-[#7C2A2A] border-4 dark:bg-white p-8 rounded-2xl shadow-2xl w-full lg:w-1/2 flex flex-col justify-between">
         <div>
           <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 font-playfair">
@@ -74,7 +78,7 @@ const Contacts = () => {
         </div>
       </div>
 
-      {/* EmailJS Form (Right Side) */}
+      {/* EmailJS Form */}
       <div className="bg-[#F8EECF] border-[#7C2A2A] border-4 dark:bg-white p-8 rounded-2xl shadow-2xl w-full lg:w-1/2 flex flex-col justify-between">
         <div>
           <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 font-playfair">
@@ -86,21 +90,21 @@ const Contacts = () => {
               name="user_name"
               placeholder="Your Name"
               required
-              className="w-full px-4 py-2 rounded-xl border border-gray-300 font-playfair"
+              className="w-full px-4 py-2 rounded-xl border-2 border-black font-playfair"
             />
             <input
               type="email"
               name="user_email"
               placeholder="Your Email"
               required
-              className="w-full px-4 py-2 rounded-xl border border-gray-300 font-playfair"
+              className="w-full px-4 py-2 rounded-xl border-2 border-black font-playfair"
             />
             <textarea
               name="message"
               placeholder="Your Message"
               rows="4"
               required
-              className="w-full px-4 py-2 rounded-xl border border-gray-300 font-playfair"
+              className="w-full px-4 py-2 rounded-xl border-2 border-black font-playfair"
             ></textarea>
             <button
               type="submit"

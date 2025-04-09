@@ -5,7 +5,7 @@ import "../../index.css";
 import Expert1 from "../../../public/assets/experts/expert1.jpg";
 import Expert2 from "../../../public/assets/experts/expert2.jpg";
 import Expert3 from "../../../public/assets/experts/expert3.jpg";
-import { FaCommentDots } from "react-icons/fa";
+import { FaUserCircle } from "react-icons/fa";
 
 const Home = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -96,7 +96,7 @@ const Home = () => {
             {bestSellers.map((product, i) => (
               <div
                 key={i}
-                className="bg-[#F8EECF] border-[#7C2A2A] border-4 dark:bg-gray-800 p-4 rounded-xl shadow-lg cursor-pointer transition transform hover:scale-105"
+                className="bg-[#F8EECF] border-2 border-black dark:bg-gray-800 p-4 rounded-xl shadow-lg cursor-pointer transition transform hover:scale-105"
                 onClick={() => setSelectedProduct(product)}
               >
                 <img
@@ -160,7 +160,7 @@ const Home = () => {
               return (
                 <div
                   key={idx}
-                  className="border-[#7C2A2A] border-4 bg-[#F8EECF] dark:bg-gray-700 p-6 rounded-xl shadow-md"
+                  className="border-2 border-black bg-[#F8EECF] dark:bg-gray-700 p-6 rounded-xl shadow-md"
                 >
                   <img
                     src={img}
@@ -185,13 +185,13 @@ const Home = () => {
         className="fixed bottom-6 right-6 z-50 bg-green-600 hover:bg-green-700 text-white p-4 rounded-full shadow-lg transition duration-300"
         onClick={toggleForm}
       >
-        <FaCommentDots size={24} />
+        <FaUserCircle size={24} />
       </button>
 
       {/* Inquiry Modal Form - Centered with Animation */}
       {showForm && (
         <div className="fixed inset-0 z-50 bg-black bg-opacity-50 flex justify-center items-center transition-opacity duration-300">
-          <div className="border-4 border-[#7C2A2A] bg-[#F8EECF] dark:bg-gray-800 p-6 rounded-xl shadow-xl w-[90%] max-w-md transform scale-95 animate-fadeIn">
+          <div className="border-2 border-black bg-[#F8EECF] dark:bg-gray-800 p-6 rounded-xl shadow-xl w-[90%] max-w-md transform scale-95 animate-fadeIn">
             <h3 className="text-lg font-semibold mb-4 font-playfair text-black dark:text-white text-center">
               Customer Feedback
             </h3>
@@ -202,7 +202,7 @@ const Home = () => {
                 placeholder="Name"
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full p-2 rounded-xl border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white font-playfair"
+                className="w-full p-2 rounded-xl border-2 border-black dark:border-gray-600 dark:bg-gray-700 dark:text-white font-playfair"
                 required
               />
               <input
@@ -211,7 +211,7 @@ const Home = () => {
                 placeholder="Email"
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full p-2 rounded-xl border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white font-playfair"
+                className="w-full p-2 rounded-xl border-2 border-black dark:border-gray-600 dark:bg-gray-700 dark:text-white font-playfair"
                 required
               />
               <textarea
@@ -219,7 +219,7 @@ const Home = () => {
                 placeholder="Your message..."
                 value={formData.message}
                 onChange={handleChange}
-                className="w-full p-2 rounded-xl border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white font-playfair"
+                className="w-full p-2 rounded-xl border-2 border-black dark:border-gray-600 dark:bg-gray-700 dark:text-white font-playfair"
                 rows="3"
                 required
               ></textarea>
@@ -227,7 +227,7 @@ const Home = () => {
                 <button
                   type="button"
                   onClick={toggleForm}
-                  className="text-sm px-3 py-1 rounded-xl bg-red-500 text-white font-playfair"
+                  className="text-sm px-3 py-1 rounded-xl bg-red-500 hover:bg-red-700 text-white font-playfair"
                 >
                   Cancel
                 </button>
