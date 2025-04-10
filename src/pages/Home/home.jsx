@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import Flower from "../../../public/assets/home/Flower.jpg";
 import Background from "../../../public/assets/home/backgroundImage.png";
 import "../../index.css";
-import Expert1 from "../../../public/assets/experts/expert1.jpg";
-import Expert2 from "../../../public/assets/experts/expert2.jpg";
-import Expert3 from "../../../public/assets/experts/expert3.jpg";
+import Expert1 from "../../../public/assets/experts/yezha.jpg";
+import Expert2 from "../../../public/assets/experts/shaina.jpg";
+import Expert3 from "../../../public/assets/experts/kim.jpg";
 import { FaUserCircle } from "react-icons/fa";
 import emailjs from "@emailjs/browser";
 import { ToastContainer, toast } from "react-toastify";
@@ -173,9 +173,9 @@ const Home = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
             {[Expert1, Expert2, Expert3].map((img, idx) => {
               const expert = [
-                { name: "Amara", title: "Founder & Designer" },
-                { name: "Leo", title: "Botanist" },
-                { name: "Selena", title: "Marketing Lead" },
+                { name: "Yezha Nicole Romulo", title: "Owner" },
+                { name: "Shaina Yupo", title: "Botanist" },
+                { name: "Ma. Kimberly Sierra", title: "Marketing Lead" },
               ][idx];
 
               return (
@@ -186,12 +186,12 @@ const Home = () => {
                   <img
                     src={img}
                     alt={expert.name}
-                    className="w-32 h-32 mx-auto rounded-full mb-4 object-cover"
+                    className="w-32 h-32 mx-auto rounded-full border-2 border-black mb-4 object-cover"
                   />
-                  <h3 className="text-xl font-semibold text-black dark:text-white font-playfair">
+                  <h3 className="text-xl text-black dark:text-white font-playfair">
                     {expert.name}
                   </h3>
-                  <p className="text-sm text-black dark:text-white font-playfair">
+                  <p className="text-md text-black dark:text-white font-playfair font-bold">
                     {expert.title}
                   </p>
                 </div>
