@@ -204,7 +204,8 @@ const Home = () => {
       {/* Floating Customer Feedback Icon */}
       <button
         onClick={toggleForm}
-        className="fixed bottom-6 right-6 z-50 bg-green-600 hover:bg-green-700 text-white p-4 rounded-full shadow-lg"
+        title="Send us your feedback"
+        className="fixed bottom-6 right-6 z-50 bg-green-600 hover:bg-green-700 text-white p-4 rounded-full shadow-lg transition-all duration-300"
       >
         <FaUserCircle size={24} />
       </button>
