@@ -90,7 +90,7 @@ const Home = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 items-center py-20">
             <div className="text-center sm:text-left sm:pl-8">
               <h1 className="text-4xl sm:text-6xl font-bold font-playfair dark:text-white">
-                Rooted with Passion,
+                Rooted in Passion,
               </h1>
               <h1 className="text-4xl sm:text-6xl font-bold font-playfair pb-6 dark:text-white">
                 Growing with Love.
