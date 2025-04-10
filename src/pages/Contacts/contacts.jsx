@@ -33,13 +33,13 @@ const Contacts = () => {
       <ToastContainer />
       
       {/* Contact Info */}
-      <div className="bg-[#F8EECF] border-[#7C2A2A] border-4 dark:bg-white p-8 rounded-2xl shadow-2xl w-full lg:w-1/2 flex flex-col justify-between">
+      <div className="bg-[#F8EECF] border-[#7C2A2A] border-4 dark:bg-gray-600 p-8 rounded-2xl shadow-2xl w-full lg:w-1/2 flex flex-col justify-between">
         <div>
-          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 font-playfair">
+          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 font-playfair dark:text-white">
             BLOOM WITH US - OUR OPENING HOURS
           </h2>
 
-          <div className="mb-6 text-gray-700 text-sm sm:text-base">
+          <div className="mb-6 text-gray-700 text-sm sm:text-base dark:text-white">
             <p className="font-semibold mb-2">Weekdays:</p>
             <ul className="mb-4 list-disc list-inside">
               <li>Tuesday - 9:00 AM to 5:00 PM</li>
@@ -57,11 +57,11 @@ const Contacts = () => {
         </div>
 
         <div>
-          <h3 className="text-xl font-semibold text-center mb-4">
+          <h3 className="text-xl font-semibold text-center mb-4 dark:text-white">
             Let's stay in touch!
           </h3>
 
-          <div className="space-y-3 text-gray-700 text-sm sm:text-base">
+          <div className="space-y-3 text-gray-700 text-sm sm:text-base dark:text-white">
             <p className="flex items-center gap-3">
               <FaEnvelope className="text-blue-600" />
               <span>amaraamourgarden@gmail.com</span>
@@ -79,9 +79,9 @@ const Contacts = () => {
       </div>
 
       {/* EmailJS Form */}
-      <div className="bg-[#F8EECF] border-[#7C2A2A] border-4 dark:bg-white p-8 rounded-2xl shadow-2xl w-full lg:w-1/2 flex flex-col justify-between">
+      <div className="bg-[#F8EECF] border-[#7C2A2A] border-4 dark:bg-gray-600 p-8 rounded-2xl shadow-2xl w-full lg:w-1/2 flex flex-col justify-between">
         <div>
-          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 font-playfair">
+          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 font-playfair dark:text-white">
             Inquiry Form
           </h2>
           <form ref={form} onSubmit={sendEmail} className="space-y-4">
@@ -90,7 +90,7 @@ const Contacts = () => {
               name="user_name"
               placeholder="Your Name"
               required
-              className="w-full px-4 py-2 rounded-xl border-2 border-black font-playfair"
+              className="w-full px-4 py-2 rounded-xl border-2 border-black font-playfair dark:bg-white dark:text-black"
             />
             <input
               type="email"

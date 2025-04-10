@@ -7,26 +7,31 @@ const Shop = () => {
       name: "Flowers",
       path: "categories/flowers",
       logo: "/assets/logo/LogoFlower.jpg",
+      description: "Buy flowers here"
     },
     {
       name: "Fertilizers",
       path: "categories/fertilizers",
       logo: "/assets/logo/LogoFertilizer.jpg",
+      description: "Buy fertilizers here"
     },
     {
       name: "Plants",
       path: "categories/plants",
       logo: "/assets/logo/LogoPlant.jpg",
+      description: "Buy plants here"
     },
     {
       name: "Seeds",
       path: "categories/seeds",
       logo: "/assets/logo/LogoSeeds.jpg",
+      description: "Buy seeds here"
     },
     {
       name: "Tools",
       path: "categories/tools",
       logo: "/assets/logo/LogoTools.jpg",
+      description: "Buy tools here"
     },
   ];
 
@@ -43,7 +48,6 @@ const Shop = () => {
           Shop Now!
         </h1>
 
-        {/* vertical on mobile, horizontal/grid on sm+ screens */}
         <ul className="flex flex-col sm:flex-row sm:flex-wrap sm:justify-center gap-10 sm:gap-20 mb-12 font-playfair text-xl text-center items-center">
           {navItems.map((item, index) => {
             const isActive = location.pathname.includes(item.path);
@@ -61,10 +65,12 @@ const Shop = () => {
                         ? "ring-4 ring-primary ring-offset-2 ring-offset-white dark:ring-offset-gray-900"
                         : ""
                     }`}
+                    title={`Shop for ${item.name}`}
                   >
                     <img
                       src={item.logo}
                       alt={`${item.name} Logo`}
+                      title={item.description} 
                       className="w-20 h-20 object-cover rounded-full shadow-md"
                     />
                   </div>
