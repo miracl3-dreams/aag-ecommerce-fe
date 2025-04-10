@@ -7,31 +7,31 @@ const Shop = () => {
       name: "Flowers",
       path: "categories/flowers",
       logo: "/assets/logo/LogoFlower.jpg",
-      description: "Check our flowers here"
+      description: "Check our flowers here",
     },
     {
       name: "Fertilizers",
       path: "categories/fertilizers",
       logo: "/assets/logo/LogoFertilizer.jpg",
-      description: "Check our fertilizers here"
+      description: "Check our fertilizers here",
     },
     {
       name: "Plants",
       path: "categories/plants",
       logo: "/assets/logo/LogoPlant.jpg",
-      description: "Check our plants here"
+      description: "Check our plants here",
     },
     {
       name: "Seeds",
       path: "categories/seeds",
       logo: "/assets/logo/LogoSeeds.jpg",
-      description: "Check our seeds here"
+      description: "Check our seeds here",
     },
     {
       name: "Tools",
       path: "categories/tools",
       logo: "/assets/logo/LogoTools.jpg",
-      description: "Check our tools here"
+      description: "Check our tools here",
     },
   ];
 
@@ -42,11 +42,12 @@ const Shop = () => {
   }, [location]);
 
   return (
-    <>
-      <div className="min-h-[75vh] p-6 bg-primary-gradient-light dark:bg-gray-900 text-gray-800 dark:text-white">
-        <h1 className="text-5xl font-bold mb-10 text-center font-playfair">
+    <div className="mt-16 mb-16 px-4 sm:px-8 lg:px-16">
+      {/* Shop Section */}
+      <div className="bg-[#F8EECF] border-black border-2 dark:bg-gray-600 p-8 rounded-2xl shadow-2xl w-full">
+        <h2 className="text-3xl font-bold text-center mb-6 font-playfair dark:text-white">
           Shop Now!
-        </h1>
+        </h2>
 
         <ul className="flex flex-col sm:flex-row sm:flex-wrap sm:justify-center gap-10 sm:gap-20 mb-12 font-playfair text-xl text-center items-center">
           {navItems.map((item, index) => {
@@ -70,7 +71,7 @@ const Shop = () => {
                     <img
                       src={item.logo}
                       alt={`${item.name} Logo`}
-                      title={item.description} 
+                      title={item.description}
                       className="w-20 h-20 object-cover rounded-full shadow-md"
                     />
                   </div>
@@ -93,7 +94,7 @@ const Shop = () => {
 
         <Outlet />
       </div>
-    </>
+    </div>
   );
 };
 

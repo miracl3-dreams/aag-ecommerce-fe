@@ -34,7 +34,7 @@ const Contacts = () => {
       {/* Flex wrapper */}
       <div className="flex flex-col lg:flex-row gap-10">
         {/* Contact Info */}
-        <div className="bg-[#F8EECF] border-[#7C2A2A] border-4 dark:bg-gray-600 p-8 rounded-2xl shadow-2xl w-full lg:w-1/2 flex flex-col justify-between">
+        <div className="bg-[#F8EECF] border-black border-2 dark:bg-gray-600 p-8 rounded-2xl shadow-2xl w-full lg:w-1/2 flex flex-col justify-between">
           <div>
             <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 font-playfair dark:text-white">
               BLOOM WITH US - OUR OPENING HOURS
