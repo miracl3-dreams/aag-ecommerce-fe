@@ -21,8 +21,9 @@ const Footer = () => {
 
         {/* Social Media Icons */}
         <div className="flex justify-center space-x-6 mt-4 sm:mt-0">
+          {/* TikTok Link (placeholder for now) */}
           <a
-            href="https://www.tiktok.com"
+            href="#"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="TikTok"
@@ -32,8 +33,10 @@ const Footer = () => {
               className="text-3xl text-black dark:text-white hover:text-[#7C2A2A] transition-all duration-300"
             />
           </a>
+
+          {/* Facebook Link */}
           <a
-            href="https://www.facebook.com"
+            href="https://www.facebook.com/profile.php?id=61572739294910"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Facebook"
@@ -43,8 +46,10 @@ const Footer = () => {
               className="text-3xl text-black dark:text-white hover:text-[#7C2A2A] transition-all duration-300"
             />
           </a>
+
+          {/* Instagram Link (placeholder for now) */}
           <a
-            href="https://www.instagram.com"
+            href="#"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram"
@@ -54,17 +59,14 @@ const Footer = () => {
               className="text-3xl text-black dark:text-white hover:text-[#7C2A2A] transition-all duration-300"
             />
           </a>
-          <a
-            href="mailto:info@amaramourgarden.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Email"
-          >
+
+          {/* Email Link */}
+          {/* <a href="mailto:amaraamourgarden@gmail.com" aria-label="Email">
             <FontAwesomeIcon
               icon={faEnvelope}
               className="text-3xl text-black dark:text-white hover:text-[#7C2A2A] transition-all duration-300"
             />
-          </a>
+          </a> */}
         </div>
       </div>
     </div>
