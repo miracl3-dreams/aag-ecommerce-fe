@@ -7,31 +7,31 @@ const Shop = () => {
       name: "Flowers",
       path: "categories/flowers",
       logo: "/assets/logo/LogoFlower.jpg",
-      description: "Buy flowers here"
+      description: "Check our flowers here"
     },
     {
       name: "Fertilizers",
       path: "categories/fertilizers",
       logo: "/assets/logo/LogoFertilizer.jpg",
-      description: "Buy fertilizers here"
+      description: "Check our fertilizers here"
     },
     {
       name: "Plants",
       path: "categories/plants",
       logo: "/assets/logo/LogoPlant.jpg",
-      description: "Buy plants here"
+      description: "Check our plants here"
     },
     {
       name: "Seeds",
       path: "categories/seeds",
       logo: "/assets/logo/LogoSeeds.jpg",
-      description: "Buy seeds here"
+      description: "Check our seeds here"
     },
     {
       name: "Tools",
       path: "categories/tools",
       logo: "/assets/logo/LogoTools.jpg",
-      description: "Buy tools here"
+      description: "Check our tools here"
     },
   ];
 
