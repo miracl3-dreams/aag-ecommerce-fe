@@ -71,22 +71,24 @@ const Navigationbar = () => {
             menuOpen ? "block" : "hidden"
           } bg-white dark:bg-black py-4 px-6 shadow-md`}
         >
-          <ul className="flex flex-col gap-4">
-            {Menu.map((data) => (
-              <li key={data.id}>
-                <a
-                  href={data.link}
-                  className="block text-black dark:text-white hover:text-black font-playfair"
-                >
-                  {data.name}
-                </a>
-              </li>
-            ))}
-          </ul>
+          <div className="flex flex-col items-start gap-4">
+            <ul className="flex flex-col gap-3 w-full">
+              {Menu.map((data) => (
+                <li key={data.id}>
+                  <a
+                    href={data.link}
+                    className="block text-black dark:text-white hover:text-primary font-playfair text-lg"
+                  >
+                    {data.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
 
-          {/* Dark Mode for Mobile */}
-          <div className="mt-4">
-            <DarkMode />
+            {/* Dark Mode Toggle inside flex for alignment */}
+            <div className="pt-2">
+              <DarkMode />
+            </div>
           </div>
         </div>
       </div>
