@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { FaSearch } from "react-icons/fa";
 
 const plantImages = [
   "ALOEVERAPLANT.jpg",
@@ -48,41 +49,65 @@ const plantPrices = {
 
 const Plants = () => {
   const [selectedImage, setSelectedImage] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const handleClick = (image) => setSelectedImage(image);
   const handleClose = () => setSelectedImage(null);
 
+  const filteredImages = plantImages.filter((image) =>
+    image.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <>
       <div className="p-6 min-h-screen">
-        <h2 className="text-3xl font-bold text-center mb-8 font-playfair">
+        <h2 className="text-3xl font-bold text-center mb-4 font-playfair">
           Plant Shop
         </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
-          {plantImages.map((image, index) => {
-            const name = image.split(".")[0];
-            const imagePath = `/assets/shop/categories/plants/${image}`;
-            const price = plantPrices[name];
+        {/* Search Input */}
+        <div className="mb-6 max-w-md mx-auto flex items-center border-2 border-gray-300 rounded-xl relative">
+          <input
+            type="text"
+            placeholder="Search plants..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="w-full px-4 py-2 rounded-xl border-none focus:outline-none focus:ring-2 focus:ring-black font-playfair pl-10" // added padding-left to make space for the icon
+          />
+          <FaSearch className="absolute left-3 text-gray-500" />{" "}
+          {/* Search icon inside the input */}
+        </div>
 
-            return (
-              <div
-                key={index}
-                className="group relative cursor-pointer"
-                onClick={() => handleClick(image)}
-              >
-                <img
-                  src={imagePath}
-                  alt={`Plant ${index + 1}`}
-                  className="w-full h-60 object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105"
-                />
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent text-white p-2 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <p className="font-bold">{name}</p>
-                  <p className="text-sm">₱{price?.toFixed(2) || "N/A"}</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+          {filteredImages.length > 0 ? (
+            filteredImages.map((image, index) => {
+              const name = image.split(".")[0];
+              const imagePath = `/assets/shop/categories/plants/${image}`;
+              const price = plantPrices[name];
+
+              return (
+                <div
+                  key={index}
+                  className="group relative cursor-pointer"
+                  onClick={() => handleClick(image)}
+                >
+                  <img
+                    src={imagePath}
+                    alt={`Plant ${index + 1}`}
+                    className="w-full h-60 object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105"
+                  />
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent text-white p-2 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <p className="font-bold">{name}</p>
+                    <p className="text-sm">₱{price?.toFixed(2) || "N/A"}</p>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })
+          ) : (
+            <p className="text-center col-span-full text-gray-500">
+              No plants found.
+            </p>
+          )}
         </div>
 
         {selectedImage && (

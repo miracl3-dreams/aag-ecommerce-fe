@@ -76,7 +76,7 @@ const Contacts = () => {
             </div>
           </div>
 
-          {/* Inquire text link */}
+          {/* Inquire text link
           <div className="text-center mt-6">
             <p className="text-[#7C2A2A] font-semibold">
               WANT TO GET ORDER? INQUIRE NOW!{" "}
@@ -87,15 +87,18 @@ const Contacts = () => {
                 Click here.
               </span>
             </p>
-          </div>
+          </div> */}
         </div>
 
         {/* Right Column with Full-Screen Location Image */}
         <div className="w-full lg:w-1/2 flex justify-center items-center">
-          <img
-            src="/assets/contacts/location.png"
-            alt="Shop Location"
-            className="w-full max-h-[90vh] object-contain rounded-xl shadow-lg"
+          <iframe
+            title="Amara Amour Garden Location"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3858.512046924875!2d121.0329047!3d14.7085974!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397b03b76347b7d%3A0xc5e7d8f72d8cb4f9!2sBrgy.%20San%20Bartolome%2C%20Novaliches%2C%20Quezon%20City!5e0!3m2!1sen!2sph!4v1712839900000!5m2!1sen!2sph"
+            className="w-full h-[500px] rounded-xl shadow-lg border-0"
+            allowFullScreen=""
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
           />
         </div>
       </div>

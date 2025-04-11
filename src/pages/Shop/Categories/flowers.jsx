@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { FaSearch } from "react-icons/fa";
 
 const flowerImages = [
   "BEGONIAS.jpg",
@@ -62,19 +63,42 @@ const flowerPrices = {
 
 const Flowers = () => {
   const [selectedImage, setSelectedImage] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const handleClick = (image) => setSelectedImage(image);
   const handleClose = () => setSelectedImage(null);
 
-  return (
-    <>
-      <div className="p-6 min-h-screen">
-        <h2 className="text-3xl font-bold text-center mb-8 font-playfair">
-          Flower Shop
-        </h2>
+  const filteredFlowers = flowerImages.filter((image) =>
+    image.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
-          {flowerImages.map((image, index) => {
+  return (
+    <div className="p-6 min-h-screen">
+      <h2 className="text-3xl font-bold text-center mb-8 font-playfair">
+        Flower Shop
+      </h2>
+
+      {/* Search Input */}
+      <div className="mb-6 max-w-md mx-auto flex items-center border-2 border-gray-300 rounded-xl relative">
+        <input
+          type="text"
+          placeholder="Search flowers..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="w-full px-4 py-2 rounded-xl border-none focus:outline-none focus:ring-2 focus:ring-black font-playfair pl-10" // added padding-left to make space for the icon
+        />
+        <FaSearch className="absolute left-3 text-gray-500" />{" "}
+        {/* Search icon inside the input */}
+      </div>
+
+      {/* Flower Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+        {filteredFlowers.length === 0 ? (
+          <p className="text-center col-span-full text-gray-500">
+            No flowers found.
+          </p>
+        ) : (
+          filteredFlowers.map((image, index) => {
             const name = image.split(".")[0];
             const imagePath = `/assets/shop/categories/flowers/${image}`;
             const price = flowerPrices[name];
@@ -96,38 +120,38 @@ const Flowers = () => {
                 </div>
               </div>
             );
-          })}
-        </div>
-
-        {selectedImage && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80">
-            <button
-              onClick={handleClose}
-              className="absolute top-4 right-4 text-white text-3xl font-bold z-50"
-            >
-              &times;
-            </button>
-            <div className="w-full h-full flex items-center justify-center p-4 flex-col gap-4">
-              <img
-                src={`/assets/shop/categories/flowers/${selectedImage}`}
-                alt={selectedImage}
-                className="max-w-full max-h-[70vh] object-contain rounded-lg shadow-2xl"
-              />
-              <div className="text-white text-center">
-                <h3 className="text-2xl font-bold">
-                  {selectedImage.split(".")[0]}
-                </h3>
-                <p className="text-lg">
-                  ₱
-                  {flowerPrices[selectedImage.split(".")[0]]?.toFixed(2) ||
-                    "N/A"}
-                </p>
-              </div>
-            </div>
-          </div>
+          })
         )}
       </div>
-    </>
+
+      {/* Modal */}
+      {selectedImage && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80">
+          <button
+            onClick={handleClose}
+            className="absolute top-4 right-4 text-white text-3xl font-bold z-50"
+          >
+            &times;
+          </button>
+          <div className="w-full h-full flex items-center justify-center p-4 flex-col gap-4">
+            <img
+              src={`/assets/shop/categories/flowers/${selectedImage}`}
+              alt={selectedImage}
+              className="max-w-full max-h-[70vh] object-contain rounded-lg shadow-2xl"
+            />
+            <div className="text-white text-center">
+              <h3 className="text-2xl font-bold">
+                {selectedImage.split(".")[0]}
+              </h3>
+              <p className="text-lg">
+                ₱
+                {flowerPrices[selectedImage.split(".")[0]]?.toFixed(2) || "N/A"}
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
   );
 };
 
