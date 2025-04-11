@@ -188,11 +188,12 @@ const Seeds = () => {
         )}
 
         <div className="text-center mt-8">
+          {/* Floating Inquire Button */}
           <button
-            className="py-2 px-4 bg-blue-600 text-white rounded-xl hover:bg-blue-700"
+            className="fixed bottom-6 right-6 z-40 py-3 px-6 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 transition-all"
             onClick={handleInquireClick}
           >
-            Inquire Now for Seeds
+            Inquire Now for Fertilizers
           </button>
         </div>
 
