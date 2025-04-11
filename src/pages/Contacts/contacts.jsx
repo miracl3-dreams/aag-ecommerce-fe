@@ -1,31 +1,11 @@
 import React, { useRef, useState } from "react";
 import { FaEnvelope, FaPhone, FaMapMarkerAlt } from "react-icons/fa";
 import emailjs from "@emailjs/browser";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Contacts = () => {
   const form = useRef();
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const sendEmail = (e) => {
-    e.preventDefault();
-    emailjs
-      .sendForm(
-        "service_priw7f4",
-        "template_s00oqkk",
-        form.current,
-        "TYwjK4dBOxwBHcdNj"
-      )
-      .then(
-        () => {
-          toast.success("Message sent successfully!");
-          form.current.reset();
-          setIsModalOpen(false);
-        },
-        () => toast.error("Failed to send message. Please try again.")
-      );
-  };
 
   return (
     <div className="mt-16 mb-16 px-4 sm:px-8 lg:px-16">
@@ -102,53 +82,6 @@ const Contacts = () => {
           />
         </div>
       </div>
-
-      {/* Inquiry Modal */}
-      {isModalOpen && (
-        <div className="fixed inset-0 z-50 bg-black bg-opacity-70 flex items-center justify-center">
-          <div className="relative bg-[#F8EECF] border-[#7C2A2A] border-4 dark:bg-gray-600 p-8 rounded-2xl shadow-2xl w-full max-w-2xl mx-4 sm:mx-0">
-            <button
-              onClick={() => setIsModalOpen(false)}
-              className="absolute top-2 right-4 text-2xl font-bold text-[#7C2A2A] hover:text-[#a03e3e] transition-all"
-            >
-              &times;
-            </button>
-
-            <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 font-playfair dark:text-white">
-              Inquiry Form
-            </h2>
-            <form ref={form} onSubmit={sendEmail} className="space-y-4">
-              <input
-                type="text"
-                name="user_name"
-                placeholder="Your Name"
-                required
-                className="w-full px-4 py-2 rounded-xl border-2 border-black font-playfair dark:bg-white dark:text-black"
-              />
-              <input
-                type="email"
-                name="user_email"
-                placeholder="Your Email"
-                required
-                className="w-full px-4 py-2 rounded-xl border-2 border-black font-playfair"
-              />
-              <textarea
-                name="message"
-                placeholder="Your Message"
-                rows="4"
-                required
-                className="w-full px-4 py-2 rounded-xl border-2 border-black font-playfair"
-              ></textarea>
-              <button
-                type="submit"
-                className="bg-[#7C2A2A] hover:bg-[#a03e3e] text-white px-6 py-2 rounded-xl w-full"
-              >
-                Send Message
-              </button>
-            </form>
-          </div>
-        </div>
-      )}
     </div>
   );
 };
