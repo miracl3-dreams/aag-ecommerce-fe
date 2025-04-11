@@ -193,7 +193,7 @@ const Seeds = () => {
             className="fixed bottom-6 right-6 z-40 py-3 px-6 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 transition-all"
             onClick={handleInquireClick}
           >
-            Inquire Now for Fertilizers
+            Inquire Now for Seeds
           </button>
         </div>
 
