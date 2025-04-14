@@ -12,7 +12,7 @@ const AboutUs = () => {
         {/* Vision Section */}
         <div className="mb-6">
           <h3 className="text-xl font-bold mb-2 dark:text-white text-center">Vision</h3>
-          <p className="text-gray-700 text-sm sm:text-base dark:text-white text-center">
+          <p className="text-gray-700 text-sm sm:text-base dark:text-white text-center font-playfair">
             To be the no.1 provider of high-quality, sustainably grown flowers
             and plants that enrich the beauty of nature.
           </p>
@@ -20,10 +20,10 @@ const AboutUs = () => {
 
         {/* Mission Section */}
         <div className="mb-6">
-          <h3 className="text-xl font-bold mb-2 dark:text-white text-center">
+          <h3 className="text-xl font-bold mb-2 dark:text-white text-center font-playfair">
             Mission
           </h3>
-          <p className="text-gray-700 text-sm sm:text-base dark:text-white text-center">
+          <p className="text-gray-700 text-sm sm:text-base dark:text-white text-center font-playfair">
             To foster emotional resonance and nurture hearts through the beauty
             of exceptional flowers and plants, shared with passion and love.
           </p>
@@ -31,10 +31,10 @@ const AboutUs = () => {
 
         {/* Core Values Section */}
         <div className="mb-6">
-          <h3 className="text-xl font-bold mb-2 dark:text-white text-center">
+          <h3 className="text-xl font-bold mb-2 dark:text-white text-center font-playfair">
             Core Values
           </h3>
-          <ul className="text-gray-700 text-sm sm:text-base dark:text-white list-disc list-inside text-center">
+          <ul className="text-gray-700 text-sm sm:text-base dark:text-white list-disc list-inside text-center font-playfair">
             <li className="font-semibold">Shared Passion</li>
             <li className="font-semibold">Sustainable Growth</li>
             <li className="font-semibold">Emotional Resonance</li>
@@ -44,10 +44,10 @@ const AboutUs = () => {
 
         {/* Background about the Enterprise */}
         <div className="mb-6">
-          <h3 className="text-xl font-bold mb-2 dark:text-white text-center">
+          <h3 className="text-xl font-bold mb-2 dark:text-white text-center font-playfair">
             Background about Enterprise Name
           </h3>
-          <p className="text-gray-700 text-sm sm:text-base dark:text-white text-center">
+          <p className="text-gray-700 text-sm sm:text-base dark:text-white text-center font-playfair">
             The name <strong>Amara Amour Garden</strong> is a blend of elegance,
             love, and nature. “Amara” is derived from various languages meaning
             “eternal” or “grace,” while “Amour” is the French word for “love.”
